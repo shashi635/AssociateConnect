@@ -1,0 +1,164 @@
+﻿<DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Associate Connect</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />     
+    <link media="only screen and (max-width: 480px)" href="css/common.css" rel="Stylesheet" />
+   	<link href="css/themes/default/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Forum/css/Home.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="window.scrollTo(0, 1);">   
+<div data-role="page" id="home">
+    <div data-role="header" data-theme="d" data-backbtn="false">
+    <table width="100%" style="display:none;">
+        <tr>
+            <td width="45px">
+                <img src="images/AssociateConnect.png" height="70" width="70" />
+            </td>
+            <td style="text-align:center;">
+                <h3>Associate Connect</h3>
+            </td>
+            <td width="40px">
+                <div data-role="navbar">
+                    <a href="#dvMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="grid" data-position-to="window">Menu</a>
+                </div>
+            </td>
+        </tr>
+        <tr class="tableborder" style="height:2px;"><td colspan="3"/></tr>
+        <tr id="tblMenuHeader" style="height:10px;">        
+            <td style="text-align:left;"><img  alt="Welcome" src="Images/welcome.bmp" class="welcomeMenu" onclick="return false;" style="cursor:default;"/><br /><label id="lbllogedinuser" class="welcomeText" ></label></td> 
+            <td colspan="2" style="text-align:right; vertical-align:top;">
+            
+              <input type="image" id="Home" alt="Home Page" src="Images/Home.bmp" class="imgMenuBtn"/> 
+              <input type="image"  id="Post" alt="New Topic" src="Images/postReply.jpg" class="imgMenuBtn"/>
+              <input type="image"  id="Search" alt="Search Topic" src="Images/Search.jpg" class="imgMenuBtn"/> 
+              <input type="image"  id="Broadcast" alt="Brodcast updates" title="Brodcast updates"  src="Images/sendSMS.bmp" class="imgMenuBtn"/> 
+            </td>        
+        </tr>
+    </table>
+    </div>
+<!--</div>-->
+    <table  cellspacing="0" id="tblMaster" style="width:100%; height:100%; background-color:#F4F9EE; display:none;" >
+        <!--<tr class="header1"><td  style="text-align:left;" ><img  alt="AConnect" src="Images/logo1.bmp" class="imgMenuBtn"  onclick="return false;" style="cursor:default;"/> </td>
+        <td colspan="2" style="text-align:right;" ><img  alt="Forum" src="Images/logo2.bmp" class="imgMenuBtn" onclick="return false;" style="cursor:default;"/> </td>
+        </tr>-->
+        <!--<tr id="tblMenuHeader" style="height:10px;">        
+            <td style="text-align:left;"><img  alt="Welcome" src="Images/welcome.bmp" class="welcomeMenu" onclick="return false;" style="cursor:default;"/><br /><label id="lbllogedinuser" class="welcomeText" ></label></td> 
+            <td colspan="2" style="text-align:right; vertical-align:top;">
+            
+              <input type="image" id="Home" alt="Home Page" src="Images/Home.bmp" class="imgMenuBtn"/> 
+              <input type="image"  id="Post" alt="New Topic" src="Images/postReply.jpg" class="imgMenuBtn"/>
+              <input type="image"  id="Search" alt="Search Topic" src="Images/Search.jpg" class="imgMenuBtn"/> 
+              <input type="image"  id="Broadcast" alt="Brodcast updates" title="Brodcast updates"  src="Images/sendSMS.bmp" class="imgMenuBtn"/> 
+            </td>        
+        </tr>-->
+        <tr class="tableborder" style="height:2px;"><td colspan="3"/></tr>        
+        <tr style="height:2px;"><td colspan="3"/></tr>
+        <tr style="height:5px; vertical-align:bottom;""><td   style="width:40%;"/>
+            <td  class="header2" style="width:10%;"></td>
+            <td  class="header3" style="width:50%; text-align:right; vertical-align:bottom;"/>              
+        </tr>                                             
+        <tr style="vertical-align:top;"><td colspan="3"><div id="childPageContainer" style="width:100%;"></div></td></tr>  
+        <tr style="vertical-align:top;"><td colspan="3">
+    <table id="tblChild">
+        <tr style="text-align: left;">
+            <td>
+                <img src="Images/CTSlogo.JPG" alt="Cognizant" style="height: 44px; width: 52px" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <span style="font-size: medium; color: Navy;">Account Information</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 5">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Login Name :
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="txtUID" type="text" style="width: 80%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Password :
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="txtPwd" type="password" style="width: 80%" />
+                        </td>
+                    </tr>
+                    <tr id="trError" style="display: none">
+                        <td style="text-align: center">
+                            <span id="lblError" style="color: Red;"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input id="btnSubmit" type="button" value="Ok" style="width: 20%; background-color: #2b9baa;color:White" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 5">
+                        </td>
+                    </tr>
+                    <tr id="trNewForget">
+                        <td style="text-align: left">
+                            <span id="spnNewUser" style="color: #2b9baa;">Register New User</span><span style="color: #2b9baa;">
+                                | </span><span id="spnFogtoPwd" style="color: #2b9baa;">Forgot password ?</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+        </td></tr>  
+        <tr><td colspan="3">
+        <div class="toggler">
+          <div id="divAssoDetails" class="ui-corner-all" >                               
+          </div>
+        </div>
+        </td></tr>                
+        </table>
+    
+         <input type="hidden" id="hdnAuthenticate" />
+        <div id="forumval">
+          <input type="hidden" id="htopic" value='' />
+       </div>              
+</div>
+    <!--<script type="text/javascript" src="Script/js/Plugin/jquery-ui-1.8.12.custom/js/jquery-1.5.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="Script/js/Plugin/jquery-ui-1.8.12.custom/js/jquery-1.10.0.min.js"></script>-->
+    <script src="Script/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <!--<script src="../Forum/script/jquery-1.10.0.min.js" type="text/javascript"></script>-->
+	<!--<script type="text/javascript" src="Script/js/Plugin/jquery-ui-1.8.12.custom/js/jquery-ui-1.8.12.custom.min.js"></script>			
+	<script type="text/javascript" src="Script/js/Plugin/json2-min.js"></script>
+    <script type="text/javascript" src="Script/js/Plugin/jquery.validate.js"></script>	-->
+    <script type="text/javascript" src="Script/StartUp.js"></script>
+   	<!--<script type="text/javascript" src="Script/Util.js"></script>-->   
+    <!--<script type="text/javascript" src="../Service/HttpCombiner.ashx?s=default&t=text/javascript&v=1.0.0.1"></script>-->
+    <!--<link href="css/Home.css" rel="stylesheet" type="text/css" />-->
+      
+      
+      <!--<script src="../Forum/script/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>-->
+      
+    		    
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Approve Member</title>
+    <!--[if lt IE 9]>
+    <script src="Script/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link media="only screen and (min-width: 481px)" href="css/medium.css" rel="stylesheet" />
+    <link media="only screen and (max-width: 480px)" href="css/small.css" rel="stylesheet" />
+   <!-- Nokia screen resolution 240 X 320 px-->
+  <style type="text/css" media="screen">
+      @import "css/common.css";
+    </style>
+</head>
+<body>
+    <table>
+        <tr style="vertical-align:bottom;">
+         <td style="text-align:left; width:57%;">
+             <img src="Images/CTSlogo.JPG" alt="Cognizant" 
+                 style="height: 32px; width: 34px" />
+         </td>
+         <td style="text-align:right;">
+           <a href="Login.htm" style="color:Blue;">Pending Approvals</a>
+         </td>
+       </tr>
+      <tr>      
+         <td colspan="2" style="vertical-align:top;">                    
+            <div style="height:5px; width:100%; background: #002B55;"></div>
+            <img src="Images/Approve Member.JPG" alt="Approve Member" 
+                 style="height: 37px; width: 97px;" />&nbsp;
+         </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr style="vertical-align:top;">
+              <td style="width:10%;"/>
+              <td>
+                <span class="captionType1">Associate ID : </span>
+             </td>
+             <td>
+                <a id="lnkAssociateIDValue" href="#abc" style="color:#006F8A;">123456</a>
+             </td>
+            </tr>
+            <tr style="vertical-align:top;">
+              <td style="width:10%;"/>
+              <td>
+                <span class="captionType1">Name : </span>
+             </td>
+             <td>
+                <span id="spnAssociateNameValue"  class="captionValueType1">Amit Kumar </span>
+             </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>      
+         <td colspan="2" style="vertical-align:top;">                    
+            <div style="height:2px; width:100%; background: #002B55;"></div>
+         </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr style="vertical-align:top;">
+              <td style="width:10%;"/>
+              <td>
+                <span class="captionType2">Group : </span>
+             </td>
+             <td>
+                <select id="ddlAssociateGroupValue" name="ddlAssociateGroupValue" class="comboBoxType1"></select>
+             </td>
+            </tr>
+            <tr style="vertical-align:top;">
+              <td style="width:10%;"/>
+              <td>
+                <span class="captionType2">Role : </span>
+             </td>
+             <td>
+                <select id="ddlAssociateRoleValue" name="ddlAssociateRoleValue" class="comboBoxType1"></select>
+             </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+       <tr>      
+         <td colspan="2" style="vertical-align:top;">                    
+            <div style="height:2px; width:100%; background: #002B55;"></div>
+         </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align:center;">
+           <input id="btnApproveAssociate" name="btnApproveAssociate" type="button" value="Approve" />
+           <input id="btnRejectAssociate" name="btnRejectAssociate" type="button" value=" Reject  "/>
+        </td>
+      </tr>
+   </table>    
+</body>
+</html>
+<script src="Script/WCFServiceCalls.js" type="text/javascript"></script>
+<script src="Script/ApproveMember.js" type="text/javascript"></script>

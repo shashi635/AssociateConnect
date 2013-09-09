@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Associate Connect - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="css/themes/default/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../Service/HttpCombiner.ashx?s=util&t=text/javascript&v=1.0.0.2"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ingPageLoading').show();
+            GetGroupValues();
+            function GetGroupValues() {
+                $.ajax({
+                    type: "GET",
+                    url: '../service/associatemobile.svc/discussions/groups',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (result) {
+                        if (result != null)
+                            bindNonDictionaryDdlList('ddlGroup', result, '', true, 'GroupDesc', 'GroupID', true);
+                        $('#ingPageLoading').hide();
+                    },
+                    error: function (e, xhr) {
+                        $('#ingPageLoading').hide();
+                    }
+                });
+            }
+            $('#btnReset').click(reset);
+            //RemoveAllStorageValues();
+            $('#btnSubmit').click(function () {
+                //addGroups();
+
+                var re5digit = "/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/";
+                var obj = new Object();
+                if ($("#tstid").val() == "") {
+                    $("#lblresult").text("Please enter Associate ID.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                }
+                else {
+                    //                    if ($("#txtPwd").val() == "")
+                    //                        $("#lblresult").text("Please enter password.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    //                    else {
+                    //                        if ($("#txtcnfrmpwd").val() == "")
+                    //                            $("#lblresult").text("Please enter confirm password.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    //                        else {
+                    if ($("#txtemail").val() == "")
+                        $("#lblresult").text("Please enter email.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if ($("#txtfirstname").val() == "")
+                        $("#lblresult").text("Please enter First Name.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if ($("#txtlastname").val() == "")
+                        $("#lblresult").text("Please enter Last Name.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if ($("#txtmobile").val() == "")
+                        $("#lblresult").text("Please enter mobile Number.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if ($("#ddlGroup").val() == "")
+                        $("#lblresult").text("Please select group(s).").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    //                            else if ($("#txtPwd").val() != $("#txtcnfrmpwd").val())
+                    //                                $("#lblresult").text("Confirm Password is not same as password.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if (!(IsValidEmail($("#txtemail").val())))
+                        $("#lblresult").text("Please enter Valid email.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if (!((/^\d{6}$/).test($("#tstid").val())))
+                        $("#lblresult").text("Please enter Valid Associate ID.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else if (!((/^\d{10}$/).test($("#txtmobile").val())))
+                        $("#lblresult").text("Please enter Valid 10 digit mobile number.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    //                    else if ($("#txtPwd").val().length < 6)
+                    //                        $("#lblresult").text("Password should contain at least 6 characters.").attr("style", "color:red;").show(100).delay(3000).hide(400);
+                    else {
+
+                        obj.email = $("#txtemail").val();
+                        obj.Password = "password";
+                        obj.AssociateID = parseInt($("#tstid").val());
+                        obj.FirstName = $("#txtfirstname").val();
+                        obj.LastName = $("#txtlastname").val();
+                        obj.Mobile = $("#txtmobile").val();
+                        obj.Gender = $('#radio-choice-h-2a').is(':checked') ? "Male" : "Female";
+                        $('#imgLoading').show();
+                        $.ajax({
+                            url: "../service/associatemobile.svc/associate/add",
+                            data: JSON.stringify(obj),
+                            type: "PUT",
+                            contentType: "application/json; charset=utf-8",
+                            success: fun_success,
+                            error: fun_err
+                        });
+                        //                            }
+                        //                        }
+                    }
+                }
+            });
+            function IsValidEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
+            }
+
+
+            function fun_success(result) {
+                if (result == "success") {
+
+                    //reset();
+                    addGroups();
+                }
+            }
+            function fun_err(result) {
+                $("#lblresult").text("Registration Unsuccessful!").attr("style", "color:red;").show(100).delay(30000).hide(400);
+                $('#imgLoading').hide();
+            }
+            function addGroups() {
+                var groupIds = "";
+                for (var i = 0; i < $("#ddlGroup").val().length; i++) {
+                    groupIds += $("#ddlGroup").val()[i] + ",";
+                }
+                $.ajax({
+                    url: "../service/associatemobile.svc/UpdateGroup/" + groupIds + "/10/" + $("#tstid").val(),
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+                        SMSObject();
+                        $('#imgLoading').hide();
+                        $("#lblresult").text("Registration successful. Your username and password is sent to your mobile.").attr("style", "color:green;").show(100).delay(30000).hide(400);
+                        reset();
+
+
+                    },
+                    error: function (e, xhr) {
+                        $('#imgLoading').hide();
+                        $("#lblresult").text("User is registered, but not added to any group. Please contact Admin!").attr("style", "color:red;").show(100).delay(30000).hide(400);
+                        reset();
+                    }
+                });
+            }
+            function reset() {
+                $("#txtemail").val('');
+                $("#tstid").val('');
+                $("#txtfirstname").val('');
+                $("#txtlastname").val('');
+                $("#txtmobile").val('');
+                GetGroupValues();
+            }
+            function SMSObject() {
+
+                var smsObj = new Object();
+                smsObj.loginid = '8961540630';
+                smsObj.passwrd = 'cognizant';
+                smsObj.msg = "Thanks " + $("#txtfirstname").val() + " " + $("#txtlastname").val() + ", Your registration is successful. You password is: 'password'. Please login to https://massociatecon.cognizant.com/mobile/login.htm";
+                smsObj.tolist = '91' + $("#txtmobile").val();
+                sendSMS(smsObj);
+
+            }
+            function sendSMS(smsObj) {
+                $.ajax({
+                    type: "GET",
+                    url: '../service/associatemobile.svc/SMS?loginid=' + smsObj.loginid + '&passwrd=' + smsObj.passwrd + '&tolist=' + smsObj.tolist + '&msg=' + smsObj.msg,
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (result) {
+
+                    },
+                    error: function (e, xhr) {
+
+                    }
+                });
+            }
+
+        });
+    </script>
+</head>
+<body >
+<div data-role="page" id="register">
+    <div data-role="header" data-theme="a" data-backbtn="false">
+    <table width="100%">
+        <tr>
+            <td width="45px">
+                <img src="images/AssociateConnect.png" height="70" width="70" />
+            </td>
+            <td style="text-align:center;">
+                <h3>Associate Connect</h3>
+            </td>
+            <td width="40px">
+                <div data-role="navbar">
+                    <!--<a href="#dvMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="grid" data-position-to="window">Menu</a>-->
+                </div>
+            </td>
+        </tr>
+        <tr class="tableborder" style="height:2px;"><td colspan="3"/></tr>
+    </table>
+    <div data-role="popup" data-overlay-theme="a" id="dvMenu" style="border-width:8px;border-color:#333333;">
+        <ul data-role="listview" data-theme="c">
+          <li><a href="Menu.htm" rel="external" data-icon="home">Home</a></li>
+          <li><a href="NewPost.htm" rel="external" data-icon="star">New Post</a></li>
+          <li><a href="MyForum.htm" rel="external" data-icon="search">Search</a></li>
+          <li><a href="#" rel="external" class="ui-btn-active ui-state-persist" data-icon="gear">Sign Off</a></li>
+        </ul>
+    </div>
+    </div>
+    <br />
+    <div data-role="content"> 
+            <img id="ingPageLoading" style="display:none;" src="Images/indicator.gif" />
+            <label for="tstid"><h4>Associate ID:</h4></label>
+            <input type="text" id="tstid" />
+            <!--<label for="txtPwd"><h4>Password:</h4></label>
+            <input type="password" id="txtPwd" />
+            <label for="txtcnfrmpwd"><h4>Confirm Password:</h4></label>
+            <input type="password" id="txtcnfrmpwd" />-->
+            <label for="txtemail"><h4>Email:</h4></label>
+            <input type="text" id="txtemail" />
+            <label for="txtfirstname"><h4>First Name:</h4></label>
+            <input type="text" id="txtfirstname" />
+            <label for="txtlastname"><h4>Last Name:</h4></label>
+            <input type="text" id="txtlastname" />
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="radio-choice-h-2"><h4>Gender:</h4></label>
+                <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="male" checked="checked">
+			    <label for="radio-choice-h-2a">Male</label>
+			    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="female">
+			    <label for="radio-choice-h-2b">Female</label>
+            </fieldset>
+            <label for="txtmobile"><h4>Mobile:</h4></label>
+            <input type="text" id="txtmobile" />
+            <label for="ddlGroup"><h4>Group:</h4></label>
+            <select id="ddlGroup" multiple="multiple" data-native-menu="false" data-theme="d"></select>
+            <br />
+            <label id="lblresult" style="display:none;"></label>
+            <div id="dvLoginLink" style="color: #2b9baa;">Go to <a href="Login.htm" rel="external" style="text-decoration:none;">Login Page</a>. </div>
+            <!--<div id="trError" style="display: none"><span id="" style="color: Red;"></span></div>-->
+            <br />
+            <img id="imgLoading" style="display:none;" src="Images/indicator.gif" />
+            <div  class="ui-bar ui-grid-a">
+                <div class="ui-block-a"><button type="submit" data-theme="b" id="btnSubmit">Register</button></div>
+	            <div class="ui-block-b"><button type="button" data-theme="a" id="btnReset">Reset</button></div>
+            </div>
+	        <br />
+
+      </div>
+
+    <div id="popUpDiv"></div>
+</div>
+
+</body>
+</html>

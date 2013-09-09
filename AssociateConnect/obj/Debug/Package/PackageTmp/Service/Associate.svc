@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Service="Cog.MLIAD.Services.Associate.Associate" %>

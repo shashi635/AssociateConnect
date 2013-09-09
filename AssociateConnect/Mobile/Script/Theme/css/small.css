@@ -1,0 +1,137 @@
+﻿@charset "utf-8";
+/*	-------------------------------------------------------------
+	HTML5 Sample Page - Stylesheet for index page 
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	
+	-------------------------------------------------------------	*/
+/* ::::::::::::::::::::::::::::: Common ::::::::::::::::::::::::::::: */
+body{padding:0;margin:0; background-color:Blue; width: 100%; height:100% !important; color:Red;}
+/*html, body, .container {min-height: 100%; width: 100%; height: 100%;}*/
+html, #container {
+    min-height: 100%; /*Sets the min height to the height of the viewport.*/
+    width: 100%;
+    height: 100%; /*Effectively, this is min height for IE5+/Win, since IE wrongly expands an element to enclose its content. This mis-behavior screws up modern  browsers*/
+    margin: 0;
+    padding: 0;
+	-webkit-text-size-adjust: none;  
+	background-color:Blue;
+}
+  
+.updateProgress
+{
+    background:url(../images/load.gif)no-repeat;
+    height:40px;width:100%;vertical-align:middle;background-position:center; position:absolute;top:150px;
+}
+  
+html>body #container { height: auto; /*this undoes the IE hack, hiding it from IE using the child selector*/}
+ 
+/* * Without this, Moz1.0 adds a vertical scrollbar */
+#container {position: absolute; top: 0;  left: 0; padding-bottom:0 !important; background-color:#fff; }
+#footer { z-index: 100000; position: absolute; bottom: 0 !important; width: 100%;	height:34px; text-align: center; background-color:#0678ee; /*background-color:#2b7cd1;*/}
+#footerIcons {padding:0px; border:0px; vertical-align:middle; margin:0px;}
+#footerIcons li { text-align:center; display:inline-block; vertical-align:top; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:12px;  cursor:pointer;}
+li.logActivity{ background: url(../images/icon-logactivity.png) no-repeat; width:34px; height:32px;}
+li.advancedReports{ background: url(../images/icon-advancedreports.png) no-repeat; width:30px; height:30px; margin:2px 0 0 0;}
+li.maps{ background: url(../images/icon-maps.png) no-repeat; width:34px; height:32px;}
+li.weather{ background: url(../images/icon-weather.png) no-repeat; width:34px; height:32px;}
+li.restaurants{ background: url(../images/icon-restaurants.png) no-repeat; width:34px; height:32px;}
+li.fullfillment{ background: url(../images/icon-fullfillment.png) no-repeat; width:34px; height:32px;}
+li.fulfillmentEmail { background:url(../images/icon-email.png) no-repeat; width:34px; height:32px;}
+
+.backIcon {float:left; padding:5px 0 0 5px; margin:0px; background:url(../images/left-arrow.png) no-repeat; width:25px; height:25px; cursor:pointer;}
+
+html, div, dl, form, h1, h2, h3, p, pre, table, ol, ul, li, dd, dt, a, 
+abbr, acronym, em, i, img, samp, span, strong, sub, sup, legend, fieldset {
+	font:normal 11px Arial, Helvetica, sans-serif;
+	color:#000;
+}
+img {
+	vertical-align: bottom;
+}
+img, fieldset {
+	border: 0;
+}
+header, nav, section, article, figure, aside, footer, div{
+	display: block;	
+}
+
+ul li{list-style:none;}
+.clearFx{clear:both; line-height:0; font-size:0;}
+.break-word {word-wrap: break-word; overflow:hidden;}
+
+/* ::::::::::::::::::::::::::::: Form Elements ::::::::::::::::::::::::::::: */
+input[type="text"], input[type="password"]{width:100%; background:#fff;  font-weight:normal; border:1px solid #b9cff0; height:16px;}
+input[type="date"] {width:80%; background:#fff;  font-weight:normal; border:1px solid #b9cff0; height:16px;}
+textarea {width:98%; background:#fff;  font-weight:normal; border:1px solid #b9cff0;}
+.input{width:120px; background:#fff;  font-weight:normal; border:1px solid #b9cff0; height:20px;}
+.select{width:100%; background:#fff;  font-weight:normal; border:1px solid #b9cff0; font:normal 11px Arial, Helvetica, sans-serif;}
+.select120{width:120px; background:#fff;  font-weight:normal; border:1px solid #b9cff0; font:normal 11px Arial, Helvetica, sans-serif;}
+.txt200{ width:170px;}
+#brokerName {width:180px; height:20px; background-color:#fff; border:1px solid #b9cff0; font:normal 11px Arial, Helvetica, sans-serif; }
+.srchcontainer {background:url(../images/search-box-image.gif) right center no-repeat;}
+/*.search {background: url(../images/button-bg.png) no-repeat; width:72px; height:23px; border:0px; font:normal 12px Arial, Helvetica, sans-serif; color:#02396e; text-decoration:none;}*/
+.button {background:url(../images/button-bg.gif) repeat-x; height:22px; border:1px solid #6ec1fb; -moz-box-shadow: 2px 2px 2px #666; -webkit-box-shadow: 2px 2px 2px #666; box-shadow: 2px 2px 2px #666; font:normal 11px Arial, Helvetica, sans-serif; color:#ffffff; padding-left:5px; padding-right:5px;}
+.backButton {background:url(../images/back-button.png) repeat-x; width:57px; border:0px; height:22px; font:normal 11px Arial, Helvetica, sans-serif; color:#ffffff; padding-left:15px;}
+.search a{color:#02396e;}
+.decorationNone{text-decoration:none;}
+
+/* ::::::::::::::::::::::::::::: Layout ::::::::::::::::::::::::::::: */
+<!--.container{background:#fff;}-->
+/* ::::::::::::::::::::::::::::: Header ::::::::::::::::::::::::::::: */
+header{margin:0 auto; background:url(../images/bg-header2.gif) repeat-x; height:37px;}
+header h1{height:74px; font: normal 24px 'Myriad Pro'; color:#FFF; padding:0 0 0 10px; margin:0; line-height:65px;}
+.logo {background:url(../images/metlife-logo.png) no-repeat; width:216px; height:36px; margin:auto; cursor:pointer;}
+nav{height:24px; border-bottom:2px solid #02396e; padding:2px; text-align:left;}
+.navElements {margin-top:-14px; float:left;}
+.searchBox{ float:left; margin-right:5px;}
+.buttons{ float:left;}
+.searchButton{ background:url(../images/btn-search.png) no-repeat; width:29px; height:22px; clear:both; float:left; margin-right:5px;}
+.clearButton{ background:url(../images/btn-clear.png) no-repeat; width:32px; height:24px; float:left;}
+
+/* ::::::::::::::::::::::::::::: Page Content ::::::::::::::::::::::::::::: */
+section{background:#fff; text-align:center;}
+.content{margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:50px;height:auto;}
+#iconSetUp{border:0px; vertical-align:middle;}
+#icons li { text-align:center; display:inline-block; vertical-align:top; padding:15px;}
+
+.submenu {height:22px; border-bottom:1px solid #02396e; border-top:1px solid #02396e; padding:2px; text-align:left; background-color:#2b7cd1; }
+.floatLeft {float:left; line-height:0px; font:bold 14px Arial, Helvetica, sans-serif; color:#fff;}
+.floatRight { float:right; line-height:0px; text-align:center; margin-right:5px;}
+.floatCenter {padding-top:3px; margin:auto; width:90%; overflow:hidden; white-space:nowrap; line-height:0px; font:bold 14px Arial, Helvetica, sans-serif; color:#fff; text-align:center;}
+/* ::::::::::::::::::::::::::::: Footer ::::::::::::::::::::::::::::: */	
+footer{width:100%; background:#016fbf; height:25px; font:normal 12px/16px Arial, Helvetica, sans-serif; color:#fff; bottom:0px !important; margin: 0px; position:fixed !important;}
+/* ::::::::::::::::::::::::::::: Login ::::::::::::::::::::::::::::: */	
+.loginBg { background-color:#eeeeee; width:70%; margin:auto; margin-top:50px;}
+
+/* ::::::::::::::::::::::::::::: Index Page ::::::::::::::::::::::::::::: */
+.searchIcon {background:url(../images/icon-iphone-search.gif) no-repeat; width:36px; height:36px; margin:0px; text-align:center;}
+.todoIcon{background:url(../images/icon-iphone-todo.gif) no-repeat; width:36px; height:36px; margin:0px; text-align:center;} 
+.alertsIcon{background:url(../images/icon-iphone-alerts.gif) no-repeat; width:36px; height:36px; margin:0px; text-align:center;} 
+.mapsIcon{background:url(../images/icon-iphone-maps.gif) no-repeat; width:36px; height:36px; margin:0px; text-align:center;}
+.metricsIcon{background:url(../images/icon-iphone-metrics.gif) no-repeat; width:36px; height:36px; margin:0px; text-align:center;}
+
+/* ::::::::::::::::::::::::::::: Classes for Accordion::::::::::::::::::::::::::::: */	
+.rounded {-webkit-border-radius:10px;}
+.round {-webkit-border-radius:5px;}
+
+#accordion{ padding:0px; margin:0px; text-align:left;}
+#accordion{list-style:none; width:auto !important; text-align:left;  padding:0px; margin:0px;}
+#accordion .brokerListArrow { background:url(../images/icon-drilldown.png) no-repeat; width:20px; height:20px; float:right; margin-top:5px;}
+#accordion li.grey  {background-color:#d2e9fc; border-bottom:1px solid #b5daf8; height:25px; font-weight:bold; line-height:25px; }
+#accordion li.darkgrey {background-color:#c6e1f7; border-bottom:1px solid #b5daf8; height:25px; font-weight:bold; line-height:25px;}
+#accordion li.grey a {display:inline;}
+#accordion li a {display:inline;}
+#accordion li.darkgrey a {display:inline;}
+.accArrow {background:url(../images/icon-drilldown.png) no-repeat; width:20px; height:20px; float:right; margin-top:5px;}
+/*.accordion {text-align:left;}
+.accMargin {margin-bottom:0px;}
+.accordion h3 {background:url(../images/accordion-bg.gif) repeat-x;	height:25px; font: bold 12px/14px Arial, Helvetica, sans-serif;	cursor: pointer; border:1px solid #9acdf6; padding-left:10px; line-height:22px; margin:0px; }
+.accordion h3 a{font: bold 12px/14px Arial, Helvetica, sans-serif; cursor: pointer;}
+.accordion h3:hover {}
+.accordion h3.active {}
+.accordion p {background: #f7f7f7; margin:0 0 15px 0;}
+.accordion span.textItalic{font-family:Arial, Helvetica, sans-serif; font-size:11px;  font-style:italic;}
+.arrowDown { background:url(../images/arrow-down.png) no-repeat; width:19px; height:19px; float:right; margin-right:5px; margin-top:5px;}*/
+
+
+/* ::::::::::::::::::::::::::::: Class for Error Message::::::::::::::::::::::::::::: */
+.alertMessage {background-color:#d2e9fc; border:1px solid #b5daf8; height:auto; color:#ff0000; font-weight:bold;}

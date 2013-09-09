@@ -1,0 +1,16 @@
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.pdb
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Data\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.dll
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.pdb
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Data\obj\Debug\ResolveAssemblyReference.cache
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.dll
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.pdb
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.dll
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.pdb
+D:\AssociateConnect\Cog.MLIAD.Data\obj\Debug\ResolveAssemblyReference.cache
+D:\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.dll
+D:\AssociateConnect\Cog.MLIAD.Data\obj\Debug\Cog.MLIAD.Data.pdb
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Data.dll.config

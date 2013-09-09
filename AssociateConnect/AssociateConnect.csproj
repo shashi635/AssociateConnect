@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE1BB6D1-ECE4-4C90-8685-BCBE87C8A654}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssociateConnect</RootNamespace>
+    <AssemblyName>AssociateConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SMSClientLibrary, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b89b42b0566d9967, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\242163\Desktop\SMSClientLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="App_Themes\Default\default.css" />
+    <Content Include="App_Themes\Default\images\AssocLoginHdr.gif" />
+    <Content Include="App_Themes\Default\images\banner.gif" />
+    <Content Include="App_Themes\Default\images\banner.jpg" />
+    <Content Include="App_Themes\Default\images\bnt-login-over.gif" />
+    <Content Include="App_Themes\Default\images\bnt-login.gif" />
+    <Content Include="App_Themes\Default\images\bnt-logout.gif" />
+    <Content Include="App_Themes\Default\images\but-logout-over.gif" />
+    <Content Include="App_Themes\Default\images\calendar.gif" />
+    <Content Include="App_Themes\Default\images\Cancel-Blue.gif" />
+    <Content Include="App_Themes\Default\images\ClearBtn.gif" />
+    <Content Include="App_Themes\Default\images\dropdownarrow.gif" />
+    <Content Include="App_Themes\Default\images\EnterBtn.gif" />
+    <Content Include="App_Themes\Default\images\indicator.gif" />
+    <Content Include="App_Themes\Default\images\indicator_large.gif" />
+    <Content Include="App_Themes\Default\images\loading.gif" />
+    <Content Include="App_Themes\Default\images\login.jpg" />
+    <Content Include="App_Themes\Default\images\rep-calendar-over.gif" />
+    <Content Include="App_Themes\Default\images\rep-calendar.gif" />
+    <Content Include="App_Themes\Default\images\Save-Blue.gif" />
+    <Content Include="App_Themes\Default\images\title-search.gif" />
+    <Content Include="App_Themes\Default\images\top-left.jpg" />
+    <Content Include="App_Themes\Default\images\top-middle.jpg" />
+    <Content Include="App_Themes\Default\images\top-right.jpg" />
+    <Content Include="App_Themes\Default\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="App_Themes\Default\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\Default\images\watchFrom-over.gif" />
+    <Content Include="App_Themes\Default\images\watchFrom.gif" />
+    <Content Include="App_Themes\Default\images\watchTo-over.gif" />
+    <Content Include="App_Themes\Default\images\watchTo.gif" />
+    <Content Include="App_Themes\Default\img\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="App_Themes\Default\img\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="App_Themes\Default\img\ui-icons_2694e8_256x240.png" />
+    <Content Include="App_Themes\Default\img\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\Default\img\ui-icons_3d80b3_256x240.png" />
+    <Content Include="App_Themes\Default\img\ui-icons_72a7cf_256x240.png" />
+    <Content Include="App_Themes\Default\img\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\Default\jquery-ui-1.7.2.custom.css" />
+    <Content Include="App_Themes\Default\jquery-ui-1.8.12.custom.css" />
+    <Content Include="App_Themes\Default\jquery.ui.all.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="lib\SMSClientLibrary.dll" />
+    <Content Include="Mobile\ApproveMember.htm" />
+    <Content Include="Mobile\BroadcastSMS.htm" />
+    <Content Include="Mobile\ChangePassword.htm" />
+    <Content Include="Mobile\css\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Mobile\css\themes\default\images\ajax-loader.gif" />
+    <Content Include="Mobile\css\themes\default\images\icons-18-black.png" />
+    <Content Include="Mobile\css\themes\default\images\icons-18-white.png" />
+    <Content Include="Mobile\css\themes\default\images\icons-36-black.png" />
+    <Content Include="Mobile\css\themes\default\images\icons-36-white.png" />
+    <Content Include="Mobile\css\themes\default\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Mobile\css\themes\default\jquery.mobile.structure-1.3.0.min.css" />
+    <Content Include="Mobile\css\themes\default\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Mobile\Images\AssociateConnect.png" />
+    <Content Include="Mobile\Images\top5.png" />
+    <Content Include="Mobile\Register.htm" />
+    <Content Include="Mobile\Default.htm" />
+    <Content Include="Mobile\css\common.css" />
+    <Content Include="Mobile\css\medium.css" />
+    <Content Include="Mobile\css\small.css" />
+    <Content Include="Mobile\DefaultMobile.aspx" />
+    <Content Include="Mobile\Images\Approve Member.JPG" />
+    <Content Include="Mobile\Images\Approve Member_temp.JPG" />
+    <Content Include="Mobile\Images\AssociateConnect2.JPG" />
+    <Content Include="Mobile\Images\Associate_Connect_Logo.jpg" />
+    <Content Include="Mobile\Images\AssoConBanner.jpg" />
+    <Content Include="Mobile\Images\BackArrow.JPG" />
+    <Content Include="Mobile\Images\btnBkgrnd.bmp" />
+    <Content Include="Mobile\Images\btnDefault.bmp" />
+    <Content Include="Mobile\Images\close.bmp" />
+    <Content Include="Mobile\Images\Close.JPG" />
+    <Content Include="Mobile\Images\CTSlogo.jpg" />
+    <Content Include="Mobile\Images\CTSlogo_small.JPG" />
+    <Content Include="Mobile\Images\discussionList.bmp" />
+    <Content Include="Mobile\Images\downArrow.bmp" />
+    <Content Include="Mobile\Images\dwn_arrow.JPG" />
+    <Content Include="Mobile\Images\femaleIcon.bmp" />
+    <Content Include="Mobile\Images\Forum.JPG" />
+    <Content Include="Mobile\Images\headerBand1.bmp" />
+    <Content Include="Mobile\Images\headerBand2.bmp" />
+    <Content Include="Mobile\Images\headerBand3.bmp" />
+    <Content Include="Mobile\Images\headerBand5.bmp" />
+    <Content Include="Mobile\Images\headerBand6.bmp" />
+    <Content Include="Mobile\Images\headerBand8.bmp" />
+    <Content Include="Mobile\Images\Home.bmp" />
+    <Content Include="Mobile\Images\indicator.gif" />
+    <Content Include="Mobile\Images\logo1.bmp" />
+    <Content Include="Mobile\Images\logo2.bmp" />
+    <Content Include="Mobile\Images\maleIcon.bmp" />
+    <Content Include="Mobile\Images\Pending Approval.JPG" />
+    <Content Include="Mobile\Images\popupHeader.JPG" />
+    <Content Include="Mobile\Images\postReply.jpg" />
+    <Content Include="Mobile\Images\refer.JPG" />
+    <Content Include="Mobile\Images\reply.bmp" />
+    <Content Include="Mobile\Images\reply.JPG" />
+    <Content Include="Mobile\Images\Search.jpg" />
+    <Content Include="Mobile\Images\sendSMS.bmp" />
+    <Content Include="Mobile\Images\side_arrow.jpg" />
+    <Content Include="Mobile\Images\Top5.bmp" />
+    <Content Include="Mobile\Images\welcome.bmp" />
+    <Content Include="Mobile\Login.htm" />
+    <Content Include="Mobile\AssociateDetails.htm" />
+    <Content Include="Mobile\Menu.htm" />
+    <Content Include="Mobile\MyForum.htm" />
+    <Content Include="Mobile\NewPost.htm" />
+    <Content Include="Mobile\Script\ApproveMember.js" />
+    <Content Include="Mobile\Script\AssociateDetails.js" />
+    <Content Include="Mobile\Script\Broadcastsms.js" />
+    <Content Include="Mobile\Script\ChangePassword.js" />
+    <Content Include="Mobile\Script\ddaccordion_1.js" />
+    <Content Include="Mobile\ForumDetail.htm" />
+    <Content Include="Mobile\Script\details.js" />
+    <Content Include="Mobile\Script\html5.js" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\ajax-loader.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\form-check-off.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\form-check-on.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\form-radio-off.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\form-radio-on.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\icon-search-black.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\icons-18-black.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\icons-18-white.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\icons-36-black.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\images\icons-36-white.png" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\jquery.mobile-1.0a3.css" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\jquery.mobile-1.0a3.js" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\jquery.mobile-1.0a3.min.css" />
+    <Content Include="Mobile\Script\jquery.mobile-1.0a3\jquery.mobile-1.0a3.min.js" />
+    <Content Include="Mobile\Script\forum.js" />
+    <Content Include="Mobile\Script\js\jquery.mobile-1.3.0.min.js" />
+    <Content Include="Mobile\Script\js\jquery-2.0.3.min.js" />
+    <Content Include="Mobile\Script\js\orientation-monitor.js" />
+    <Content Include="Mobile\Script\js\Plugin\ajaxupload.js" />
+    <Content Include="Mobile\Script\js\Plugin\grid.locale-en.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-jtemplates.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\css\ui-lightness\jquery-ui-1.8.12.custom.css" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\index.html" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\js\jquery-1.10.0.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\js\jquery-1.5.1.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom\js\jquery-ui-1.8.12.custom.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.ajax_upload.1.0.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.autocomplete.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.bgiframe.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.firmfileupload.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.fmatter.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.jqGrid.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.jqURL.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.maskedinput.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.selectboxes.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.selectboxes.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.selectboxes.pack.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.validate.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.validate.min.js" />
+    <Content Include="Mobile\Script\js\Plugin\jquery.validate.pack.js" />
+    <Content Include="Mobile\Script\js\Plugin\json2-min.js" />
+    <Content Include="Mobile\Script\js\Plugin\popup.js" />
+    <Content Include="Mobile\Script\js\PowerApp.js" />
+    <Content Include="Mobile\Script\Menu.js" />
+    <Content Include="Mobile\Script\NewPost.js" />
+    <Content Include="Mobile\Script\Register.js" />
+    <Content Include="Mobile\Script\StartUp.js" />
+    <Content Include="Mobile\Script\Theme\css\medium.css" />
+    <Content Include="Mobile\Script\Theme\css\small.css" />
+    <Content Include="Mobile\Script\Util.js" />
+    <Content Include="Mobile\Script\WCFServiceCalls.js" />
+    <Content Include="Scripts\grid.formedit.js" />
+    <Content Include="Scripts\grid.locale-en.js" />
+    <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.jqGrid.min.latest.js" />
+    <Content Include="Scripts\json2-min.js" />
+    <Content Include="Scripts\ui\effects.core.js" />
+    <Content Include="Scripts\ui\effects.highlight.js" />
+    <Content Include="Scripts\ui\ui.core.js" />
+    <Content Include="Scripts\ui\ui.dialog.js" />
+    <Content Include="Scripts\ui\ui.draggable.js" />
+    <Content Include="Scripts\ui\ui.mouse.js" />
+    <Content Include="Scripts\ui\ui.position.js" />
+    <Content Include="Scripts\ui\ui.resizable.js" />
+    <Content Include="Scripts\ui\ui.sortable.js" />
+    <Content Include="Scripts\ui\ui.widget.js" />
+    <Content Include="Service\Associate.svc" />
+    <Content Include="Service\AssociateMobile.svc" />
+    <Content Include="Styles\datePicker.css" />
+    <Content Include="Styles\jquery-ui-1.7.2.custom.css" />
+    <Content Include="Styles\jquery.autocomplete.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TestSMS.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web\FireWalls\FirewallDetails.aspx" />
+    <Content Include="Web\Forum\BroadcastMsg.aspx" />
+    <Content Include="Web\Images\Heading\ApproveMember.JPG" />
+    <Content Include="Web\Images\attention-icon.JPG" />
+    <Content Include="Web\Images\brand.jpg" />
+    <Content Include="Web\Images\brand_small.JPG" />
+    <Content Include="Web\Images\fadedlogo.jpg" />
+    <Content Include="Web\Images\Heading\Addmember.JPG" />
+    <Content Include="Web\Images\Heading\associateconnect.bmp" />
+    <Content Include="Web\Images\Heading\AssociateConnect1.bmp" />
+    <Content Include="Web\Images\Heading\Broadcast_SMS.JPG" />
+    <Content Include="Web\Images\Heading\Category.JPG" />
+    <Content Include="Web\Images\Heading\firewall.JPG" />
+    <Content Include="Web\Images\Heading\Groups.JPG" />
+    <Content Include="Web\Images\Heading\home.JPG" />
+    <Content Include="Web\Images\Heading\homepage.bmp" />
+    <Content Include="Web\Images\Heading\Register.JPG" />
+    <Content Include="Web\Images\Heading\Search_Member.JPG" />
+    <Content Include="Web\Images\Heading\Software.JPG" />
+    <Content Include="Web\Images\Heading\title.JPG" />
+    <Content Include="Web\Images\img_menu.jpg" />
+    <Content Include="Web\Images\img_menu_hover.jpg" />
+    <Content Include="Web\Images\minus2.jpg" />
+    <Content Include="Web\Images\plus2.jpg" />
+    <Content Include="Web\Images\textbox_background.jpg" />
+    <Content Include="Web\Member\ApproveMember.aspx" />
+    <Content Include="Web\Member\Category.aspx" />
+    <Content Include="Web\Member\Edit Groups.aspx" />
+    <Content Include="Web\Member\SearchMember.aspx" />
+    <Content Include="Web\Software\SoftwareDetails.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associate.Master.cs">
+      <DependentUpon>Associate.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associate.Master.designer.cs">
+      <DependentUpon>Associate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\DefaultMobile.aspx.cs">
+      <DependentUpon>DefaultMobile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\DefaultMobile.aspx.designer.cs">
+      <DependentUpon>DefaultMobile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSMS.aspx.cs">
+      <DependentUpon>TestSMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestSMS.aspx.designer.cs">
+      <DependentUpon>TestSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\FireWalls\FirewallDetails.aspx.cs">
+      <DependentUpon>FirewallDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\FireWalls\FirewallDetails.aspx.designer.cs">
+      <DependentUpon>FirewallDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Forum\BroadcastMsg.aspx.cs">
+      <DependentUpon>BroadcastMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Forum\BroadcastMsg.aspx.designer.cs">
+      <DependentUpon>BroadcastMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Member\ApproveMember.aspx.cs">
+      <DependentUpon>ApproveMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Member\ApproveMember.aspx.designer.cs">
+      <DependentUpon>ApproveMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Member\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Member\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Member\Edit Groups.aspx.cs">
+      <DependentUpon>Edit Groups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Member\Edit Groups.aspx.designer.cs">
+      <DependentUpon>Edit Groups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Member\SearchMember.aspx.cs">
+      <DependentUpon>SearchMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Member\SearchMember.aspx.designer.cs">
+      <DependentUpon>SearchMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Software\SoftwareDetails.aspx.cs">
+      <DependentUpon>SoftwareDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Software\SoftwareDetails.aspx.designer.cs">
+      <DependentUpon>SoftwareDetails.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cog.MLIAD.Mobile\Cog.MLIAD.Mobile.csproj">
+      <Project>{302582A0-0442-49B1-8BFD-88CECDFC4042}</Project>
+      <Name>Cog.MLIAD.Mobile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cog.MLIAD.Services\Cog.MLIAD.Services.csproj">
+      <Project>{5B0911DB-6187-455F-8001-802193000888}</Project>
+      <Name>Cog.MLIAD.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cog.MLIAD.Util\Cog.MLIAD.Util.csproj">
+      <Project>{57B4A58D-9FEC-427A-844A-FE607E23C920}</Project>
+      <Name>Cog.MLIAD.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web\Member\CheckID.ashx" />
+    <Content Include="Web\Member\SearchCity.ashx" />
+    <Content Include="Web\Member\SearchCountry.ashx" />
+    <Content Include="Web\Member\SearchState.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Associate.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mobile\Script\js\Plugin\jquery-ui-1.8.12.custom.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web\Member\CheckUsername.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service\HttpCombiner.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mobile\Script\js\jquery-2.0.3.min.map" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4524</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

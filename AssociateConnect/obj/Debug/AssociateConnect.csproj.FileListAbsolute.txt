@@ -1,0 +1,42 @@
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\AssociateConnect.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\AssociateConnect.pdb
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.pdb
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.pdb
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.pdb
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.pdb
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\AssociateConnect.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\AssociateConnect.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\obj\Debug\ResolveAssemblyReference.cache
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.pdb
+D:\AssociateConnect\AssociateConnect\bin\AssociateConnect.dll
+D:\AssociateConnect\AssociateConnect\bin\AssociateConnect.pdb
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Mobile.pdb
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Services.pdb
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.BusinessLogic.pdb
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Data.pdb
+D:\AssociateConnect\AssociateConnect\obj\Debug\ResolveAssemblyReference.cache
+D:\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.dll
+D:\AssociateConnect\AssociateConnect\obj\Debug\AssociateConnect.pdb
+D:\AssociateConnect\AssociateConnect\bin\SMSClientLibrary.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Util.dll
+D:\AssociateConnect\AssociateConnect\bin\Cog.MLIAD.Util.pdb

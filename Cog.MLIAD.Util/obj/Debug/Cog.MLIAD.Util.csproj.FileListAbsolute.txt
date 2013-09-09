@@ -1,0 +1,15 @@
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.dll
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.pdb
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Util\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.dll
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.pdb
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.dll
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.pdb
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Util\obj\Debug\ResolveAssemblyReference.cache
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.dll
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.pdb
+D:\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.dll
+D:\AssociateConnect\Cog.MLIAD.Util\bin\Debug\Cog.MLIAD.Util.pdb
+D:\AssociateConnect\Cog.MLIAD.Util\obj\Debug\ResolveAssemblyReference.cache
+D:\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.dll
+D:\AssociateConnect\Cog.MLIAD.Util\obj\Debug\Cog.MLIAD.Util.pdb

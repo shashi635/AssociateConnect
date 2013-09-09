@@ -1,0 +1,15 @@
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.pdb
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.dll
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.pdb
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.dll
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.pdb
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.dll
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.BusinessLogic.pdb
+D:\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+D:\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.dll
+D:\AssociateConnect\Cog.MLIAD.BusinessLogic\obj\Debug\Cog.MLIAD.BusinessLogic.pdb

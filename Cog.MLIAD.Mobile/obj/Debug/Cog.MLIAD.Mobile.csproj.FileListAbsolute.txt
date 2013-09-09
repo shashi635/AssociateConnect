@@ -1,0 +1,15 @@
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.dll
+D:\VSS_Shashi\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.pdb
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\ResolveAssemblyReference.cache
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.dll
+D:\VSS_Shashi\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.pdb
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.dll
+Y:\Associate Connect\Code\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.pdb
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\ResolveAssemblyReference.cache
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.dll
+Y:\Associate Connect\Code\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.pdb
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.dll
+D:\AssociateConnect\AssociateConnect_Library\Cog.MLIAD.Mobile.pdb
+D:\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\ResolveAssemblyReference.cache
+D:\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.dll
+D:\AssociateConnect\Cog.MLIAD.Mobile\obj\Debug\Cog.MLIAD.Mobile.pdb

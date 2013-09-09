@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Associate Connect - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="css/themes/default/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../Service/HttpCombiner.ashx?s=util&t=text/javascript&v=1.0.0.2"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            RemoveAllStorageValues();
+            $('#spnFogtoPwd').click(function () {
+                $('#dvforget').show();
+                $('#dvCancel').show();
+                $('#dvPwd').hide();
+                $("#btnSubmit").text("Ok");
+                $("#btnSubmit").button("refresh");
+                $('#spnLogin').show();
+                $('#spnFogtoPwd').hide();
+                reset();
+            });
+            $('#btnCancel').click(function () {
+                showLogin();
+            });
+            $('#spnLogin').click(function () {
+                showLogin();
+            });
+            function showLogin() {
+                $('#dvforget').hide();
+                $('#dvCancel').hide();
+                $('#dvPwd').show();
+                $("#btnSubmit").text("Login");
+                $("#btnSubmit").button("refresh");
+                $('#spnLogin').hide();
+                $('#spnFogtoPwd').show();
+                reset();
+            }
+
+            function reset() {
+                $('#txtUID').val("");
+                $('#txtemail').val("");
+                $('#txtmobile').val("");
+                $('#txtPwd').val("");
+                setError("");
+            }
+
+            $('#btnSubmit').click(function () {
+                var len = 6;
+                if ($('#btnSubmit').text() == "Ok") {
+                    var u = $.trim($('#txtUID').val());
+                    var e = ($.trim($('#txtemail').val()).length == 0) ? null : $.trim($('#txtemail').val());
+                    var m = ($.trim($('#txtmobile').val()).length == 0) ? null : $.trim($('#txtmobile').val());
+                    if ((u !== "") && (u.length >= 6)) {
+                        setError("");
+                        getForgotPWD(u, e, m)
+                    }
+                    else {
+                        setError("Please enter valid Associate ID!");
+                    }
+
+                }
+                else if ($('#btnSubmit').text() == "Login") {
+                    if (validteAuthenticate() == true) {
+                        setError("");
+                        onAuthenticate($.trim($('#txtUID').val()), $.trim($('#txtPwd').val()));
+                    }
+                }
+
+            });
+            function validteAuthenticate() {
+
+                var len = 6; //represent length of char for userid/password
+                var u = $.trim($('#txtUID').val());
+                var p = $.trim($('#txtPwd').val());
+                var r = (p !== "") && (u !== "") ? true : false;
+                var l = ((p.length >= len) && (u.length >= len) ? true : false);
+                var res = false;
+                if (r == true) {
+                    if (l == true) {
+                        res = true;
+                    }
+                    else {
+                        setError("User ID & password of length " + len + " are not allowed !");
+                    }
+                }
+                else {
+                    setError("Blank value not allowed !");
+                }
+                return res;
+            };
+
+            function onAuthenticate(uid, pwd) {
+                //debugger;
+
+                $.ajax({
+
+                    type: "GET",
+                    url: '../Service/AssociateMobile.svc/associate/' + uid + '/' + pwd + '/login',
+                    contentType: 'application/json; charset=utf-8',
+                    // dataType: 'json',
+                    success: function (result) {
+                        if (result !== undefined) {
+                            if (result == "") {
+                                //redirectPage("default.htm?page=login reqid=f");
+
+                                setError("Login failed ! Please try again !");
+                            }
+                            else {
+
+                                var auth = new Object();
+                                var IsflowCorrect = true;
+                                auth.u = uid;
+                                auth.p = pwd;
+                                auth.surl = "";
+                                auth.curl = "Menu.htm";
+                                auth.status = true;
+                                auth.AssociateID = result.AssociateID;
+                                auth.Designation = result.Designation;
+                                auth.DesignationID = result.DesignationID;
+                                auth.DirectReportID = result.DirectReportID;
+                                auth.DirectReporter = result.DirectReporter;
+                                auth.DOB = result.DOB;
+                                auth.DOJ = result.DOJ;
+                                auth.Gender = result.Gender;
+                                auth.email = result.email;
+                                auth.Location = result.Location;
+                                auth.LocationID = result.LocationID;
+                                auth.Mobile = result.Mobile;
+                                auth.Name = result.Name;
+                                auth.ProjectID = result.ProjectID.Value;
+                                auth.ProjectName = result.ProjectName;
+                                auth.IsApproved = result.IsApproved;
+                                //alert('Success' + result.groupList);
+                                if (result.groupList !== undefined) {
+                                    auth.groupList = result.groupList;
+                                    auth.Role = result.Role;
+                                    auth.defaultgroupid = result.groupList[0].GroupID;
+                                    auth.defaultgroupname = result.groupList[0].GroupName;
+                                    auth.defaultgroupdesc = result.groupList[0].GroupDesc;
+                                }
+                                else {
+                                    auth.groupList = "";
+                                    auth.Role = "";
+                                    auth.defaultgroupid = "";
+                                    auth.defaultgroupname = "";
+                                    auth.defaultgroupdesc = "";
+                                }
+                                SetSessionStorage("ACProfile", JSON.stringify(auth));
+                                //setSessionObject(auth);
+                                if ($('#lbllogedinuser') !== undefined) {
+                                    $('#lbllogedinuser').text(auth.Name + "!!");
+                                }
+                                window.location.href = "Menu.htm";
+                                //loadChildPage(auth.curl, false);
+
+                            }
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function (e, xhr) {
+
+                        setError("Login failed ! Please try again !");
+                        //setError(e.toString());
+                        //errorcallback(e, xhr);
+                    }
+                });
+            };
+        });
+
+        function setError(str) {
+            if (str.length > 0) {
+                $('#trError').show();
+                $('#lblError').text(str);
+            }
+            else {
+                $('#trError').hide();
+                $('#lblError').text("");
+            }
+        };
+
+        function getForgotPWD(assID, emailid, mobno) {
+            $.ajax({
+                type: "GET",
+                url: '../service/associatemobile.svc/associate/-1/' + assID + '/-1/forgot',
+                contentType: 'application/json; charset=utf-8',
+                // dataType: 'json',{userid}/{associateid}/{name}/forgot
+                success: function (result) {
+                    if (result == "") {
+                        setError("Incorrect Information!");
+                        $('#imgPopUpBusy').hide();
+                    }
+                    else {
+                        if (result.Mobile == mobno || result.email.toLowerCase() == emailid.toLowerCase()) {
+                            setError('Information you provided is correct. Password has send to you mobile.');
+                            SMSObject(result);
+                        }
+                        else {
+                            setError("Incorrect Information!");
+                        }
+                    }
+                },
+                error: function (e, xhr) {
+                    onServiceError(e, xhr);
+                }
+            });
+
+        }
+        function onServiceError(e, xhr) {
+            alert('Getting error to fetch Data: ' + e.responseText);
+        }
+        ////////////////////////////////////////////////////////////
+        function SMSObject(sms) {
+
+            var smsObj = new Object();
+            smsObj.loginid = '8961540630';
+            smsObj.passwrd = 'cognizant';
+            smsObj.msg = "AssociateConnect password is " + sms.Password;
+            smsObj.tolist = '91' + sms.Mobile;
+            sendForgotSMS(smsObj);
+
+        }
+        function sendForgotSMS(smsObj) {
+            $.ajax({
+                type: "GET",
+                url: '../service/associatemobile.svc/SMS?loginid=' + smsObj.loginid + '&passwrd=' + smsObj.passwrd + '&tolist=' + smsObj.tolist + '&msg=' + smsObj.msg,
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    //alert('Password send successfully...');
+                    //alert('Valid Associate ! Password has send to mobile & email');
+                    //closeReplyToPost('popUpDiv');
+                    //                        $("#btnSendGroupSMS")[0].disabled = false;
+                    //                        $("#imgBusyBM").hide();
+                    //                        $("#ddlPostGroupBM").val("");
+                    //                        $("#txtsmsbodyBM").val("");
+                },
+                error: function (e, xhr) {
+                    //debugger;
+                    //alert('Password SMS failed...');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="Login">
+    <div data-role="header" data-theme="a" data-backbtn="false">
+    <table width="100%">
+        <tr>
+            <td width="45px">
+                <img src="images/AssociateConnect.png" height="70" width="70" />
+            </td>
+            <td style="text-align:center;">
+                <h3>Associate Connect</h3>
+            </td>
+            <td width="40px">
+                <div data-role="navbar">
+                    <!--<a href="#dvMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="grid" data-position-to="window">Menu</a>-->
+                </div>
+            </td>
+        </tr>
+        <tr class="tableborder" style="height:2px;"><td colspan="3"/></tr>
+    </table>
+    <div data-role="popup" data-overlay-theme="a" id="dvMenu" style="border-width:8px;border-color:#333333;">
+        <ul data-role="listview" data-theme="c">
+          <li><a href="Menu.htm" rel="external" data-icon="home">Home</a></li>
+          <li><a href="NewPost.htm" rel="external" data-icon="star">New Post</a></li>
+          <li><a href="MyForum.htm" rel="external" data-icon="search">Search</a></li>
+          <li><a href="#" rel="external" class="ui-btn-active ui-state-persist" data-icon="gear">Sign Off</a></li>
+        </ul>
+    </div>
+    </div>
+    <br />
+    <div data-role="content"> 
+        
+        <label for="txtUID"><h4>Associate ID:</h4></label>
+        <input type="text" id="txtUID" />
+        <div id="dvPwd">
+            <label for="txtPwd"><h4>Password:</h4></label>
+            <input type="password" id="txtPwd" />
+        </div>
+        <div id="dvforget" style="display:none;">
+            <label for="txtemail"><h4>Email:</h4></label>
+            <input type="text" id="txtemail" />
+            <label for="txtmobile"><h4>Mobile:</h4></label>
+            <input type="text" id="txtmobile" />
+        </div>
+        <br />
+        <div id="trError" style="display: none"><span id="lblError" style="color: Red;"></span></div>
+        <br />        
+        <div  class="ui-bar ui-grid-a">
+            <div class="ui-block-a">
+                <button type="button" data-theme="b" id="btnSubmit">Login</button>
+            </div>
+            <div class="ui-block-b" id='dvCancel' style="display:none;">
+                <button type="button" data-theme="c" id="btnCancel">Cancel</button>        
+            </div>
+        </div>
+        <!--</fieldset>-->
+        <!--<div  class="ui-bar ui-grid-a">
+        <div class="ui-block-a"><button type="submit" data-theme="b" id="btnSubmit">Login</button></div>
+	    <div class="ui-block-b"><button type="submit" data-theme="a">Reset</button></div>
+        </div>-->
+	    <br />
+	    <div class="ui-block-b"><a ></a></div>
+        <span id="spnNewUser" style="color: #2b9baa;"><a rel="external" href="Register.htm"  style="text-decoration:none;">Register New User</a> </span>  |  <span id="spnFogtoPwd" style="color: #2b9baa;"><a href="#" style="text-decoration:none;">Forgot password? </a></span><span id="spnLogin" style="color: #2b9baa; display:none;"><a href="#" style="text-decoration:none;">Login</a></span>
+      </div>
+
+    <div id="popUpDiv"></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5F9B317-0907-4AC5-A92A-FCC3063509E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cog.MLIAD.BusinessLogic</RootNamespace>
+    <AssemblyName>Cog.MLIAD.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\AssociateConnect_Library\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMSClientLibrary, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b89b42b0566d9967, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AssociateConnect_Library\SMSClientLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Associate\Account.cs" />
+    <Compile Include="Associate\Address.cs" />
+    <Compile Include="Associate\AddressType.cs" />
+    <Compile Include="Associate\Associate.cs" />
+    <Compile Include="Associate\Category.cs" />
+    <Compile Include="Associate\ChangePassword.cs" />
+    <Compile Include="Associate\Designation.cs" />
+    <Compile Include="Associate\Discussion.cs" />
+    <Compile Include="Associate\DiscussionDetails.cs" />
+    <Compile Include="Associate\FirewallRequest.cs" />
+    <Compile Include="Associate\Group.cs" />
+    <Compile Include="Associate\Location.cs" />
+    <Compile Include="Associate\Pager.cs" />
+    <Compile Include="Associate\Phone.cs" />
+    <Compile Include="Associate\PhoneType.cs" />
+    <Compile Include="Associate\Practice.cs" />
+    <Compile Include="Associate\Project.cs" />
+    <Compile Include="Associate\City.cs" />
+    <Compile Include="Associate\Country.cs" />
+    <Compile Include="Associate\Role.cs" />
+    <Compile Include="Associate\SMS.cs" />
+    <Compile Include="Associate\SMSAccount.cs" />
+    <Compile Include="Associate\SoftwareCategory.cs" />
+    <Compile Include="Associate\SoftwareRequest.cs" />
+    <Compile Include="Associate\SoftwareResource.cs" />
+    <Compile Include="Associate\SoftwareVersion.cs" />
+    <Compile Include="Data\AssociateRepository.cs" />
+    <Compile Include="Data\iAssociateRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Associate\State.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cog.MLIAD.Data\Cog.MLIAD.Data.csproj">
+      <Project>{901D04C4-368B-4B51-A7CC-746B71949C34}</Project>
+      <Name>Cog.MLIAD.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

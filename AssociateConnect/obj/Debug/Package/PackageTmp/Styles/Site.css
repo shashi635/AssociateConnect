@@ -1,0 +1,510 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body   
+{
+    background://#b6b7bc;
+    background ://url(~/Web/Images/Background_Cognizant.jpg);
+    
+    font-size: .80em;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+}
+
+a:link, a:visited
+{
+    color: #034af3;
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width:100%;
+    background-color: #fcfcff;
+    margin: 8px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background:// #4b6c9e;
+    background-color:Black;
+    width: 100%;
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background-color:black;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{
+    background-image:url(~/Web/Images/fadedlogo.jpg);
+    padding: 0px 0px;
+    
+    min-height: 800px;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color:#3a4f63;
+    width:100%;
+}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    line-height:1.50em;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background:url(../Web/Images/img_menu.jpg) repeat ;
+  
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    cursor: pointer;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background:url(../Web/Images/img_menu_hover.jpg) repeat;
+    color: #465c71;
+    line-height:1.35em;
+    padding:4px 20px;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background:url(../Web/Images/img_menu.jpg) repeat ;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+.label
+{
+    font-weight:normal;
+    color:#096BFF;
+}
+
+.labelerror
+{
+    background-color:#FD846F;
+    color:#FFFFFF;
+}
+
+
+input.textEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.textbox
+{
+    border-style: groove;
+    border-color: inherit;
+    border-width: 1px;
+    width:280px;
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    }
+
+    
+input.textboxhover
+{
+    width:280px;
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    border: 1px groove #287EFF;
+}
+
+input.textboxerror
+{
+    border-style: groove;
+    border-color: inherit;
+    border-width: 1px;
+    width:280px;
+    font-size: 12px;
+    background-color:#FD846F;
+}
+    input.textboxmember
+{
+    border-style: groove;
+    border-color: inherit;
+    border-width: 1px;
+    width:220px;
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    }
+
+input.textboxhovermember
+{
+    width:220px;
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    border: 1px groove #287EFF;
+}
+
+input.textboxerrormember
+{
+    border-style: groove;
+    border-color: inherit;
+    border-width: 1px;
+    width:220px;
+    font-size: 12px;
+    background-color:#FD846F;
+}
+
+input.ddl
+{
+    border-style: groove;
+    border-color: inherit;
+    border-width: 1px;
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    width:187px;
+    }
+input.ddlhover
+{
+    font-size: 12px;
+    background:url(~/Web/Images/textbox_background.jpg);
+    border: 1px groove #287EFF;
+    
+}
+input.button
+{
+    font-weight:bold; 
+    font-family:Arial;
+    color:#3366CC;
+    background:url(~/Web/Images/textbox_background.jpg);
+    width: 88px; 
+    height: 28px;
+}
+
+input.passwordEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color:Blue;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+    width: 68px;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.fldset
+{
+    
+    margin-left:40px;
+    margin-right: 40px;
+}
+
+.fldset_approve
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+
+.legend
+{
+     cursor:pointer;
+}
+
+.emptyrow
+{
+    color: #FF0000;
+    font-weight: 700;
+    line-height:0.5em;
+}
+        
+.bubbleInfo 
+{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 99px;
+}
+
+.popup 
+{
+    position: absolute;
+    display: none;
+    color:Red;
+    font-style:normal;
+    background-color:White;
+}
+
+.Warning
+{
+    font-weight:normal;
+    font-style:italic;
+    color:Red;
+}
+.error
+{
+    font-weight:normal;
+    font-style:italic;
+    color:Red;
+}
+
+.DisplayWarning
+{
+    visibility:visible;
+    font-weight:normal;
+    font-style:italic;
+    color:Red;
+}
+.displaypnl
+{
+    visibility:visible;
+}
+.hidepnl
+{
+    visibility:hidden;
+}
+
+.popup td.corner {  background-image:url(~/Web/Images/Popup/topleft.jpg)               height: 15px;                width: 19px;        }        
+    
+    .popup td#topleft { background: url(~/Web/Images/Popup/topleft.jpg); }        
+    .popup td.top { background: url(~/Web/Images/Popup/top.jpg) repeat; }        
+    .popup td#topright { background: url(~/Web/Images/Popup/topright.jpg); }        
+    .popup td.left { background: url(~/Web/Images/Popup/left.jpg) repeat; }        
+    .popup td.right { background: url(~/Web/Images/Popup/right.jpg) repeat; }        
+    .popup td#bottomleft { background: url(~/Web/Images/Popup/bottomleft.jpg); }        
+    .popup td.bottom { background: url(~/Web/Images/Popup/bottom.jpg) repeat;}        
+    .popup td#bottomright { background: url(~/Web/Images/Popup/bottomright.jpg); }     
+       
+.tl{ background: url(~/Web/Images/Popup/topleft.jpg); } 
+
+xt-align:right;
+}
+
+.tdapproval
+{
+    margin-top: 10px;
+    elevation:above;
+}
+
+.tdapproval
+{
+    margin-top: 10px;
+    elevation:above;
+}

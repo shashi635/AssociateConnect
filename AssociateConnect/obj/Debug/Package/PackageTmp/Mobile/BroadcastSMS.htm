@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Associate Connect - Broadcast SMS</title>    
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="css/themes/default/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../Service/HttpCombiner.ashx?s=util&t=text/javascript&v=1.0.0.2"></script>
+	<script type="text/javascript" src="Script/Broadcastsms.js"></script>    
+  	<style type="text/css" media="screen">         
+        #imgplus
+        {
+            height: 9px;
+            width: 9px;
+        }
+        .tableTdNewPost
+        {
+            width: 773px;
+            text-align:left; 
+            padding-left:10%;
+        }
+    </style>
+    
+
+    
+</head>
+<body onload="window.scrollTo(0, 1);">       
+<div data-role="page" id="BroadcastSMS">
+    <div data-role="header" data-theme="a" data-backbtn="false">
+    <table width="100%">
+        <tr>
+            <td width="45px">
+                <img src="images/AssociateConnect.png" height="70" width="70" />
+            </td>
+            <td style="text-align:center;">
+                <h3>Associate Connect</h3>
+            </td>
+            <td width="40px">
+                <div data-role="navbar">
+                    <a href="#dvMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" data-icon="grid" data-position-to="origin">Menu</a>
+                </div>
+            </td>
+        </tr>
+        <tr class="tableborder" style="height:2px;"><td colspan="3"/></tr>
+    </table>
+    <div data-role="popup" data-overlay-theme="a" id="dvMenu" style="border-width:8px;border-color:#333333;">
+        <ul data-role="listview" data-theme="c">
+          <li><a href="Menu.htm" rel="external"  data-icon="home">Home</a></li>
+          <li><a href="NewPost.htm" rel="external" data-icon="star">New Post</a></li>
+          <li><a href="MyForum.htm" rel="external" data-icon="search">Search</a></li>
+          <li><a href="BroadcastSMS.htm" class="ui-btn-active ui-state-persist" rel="external" data-icon="gear">Broadcast SMS</a></li>
+          <li><a href="AssociateDetails.htm" rel="external" data-icon="gear">User Info</a></li>
+          <li><a href="ChangePassword.htm" rel="external" data-icon="star">Change Password</a></li>
+          <li><a href="Login.htm" rel="external" data-icon="gear">Sign Off</a></li>
+        </ul>
+    </div>
+    </div>
+         <div style="border-bottom:1px solid #660033;font-weight:bold; padding:0 0 0 5px;"><a href="AssociateDetails.htm" rel="external" style="color:Black; text-decoration:none;" id="wlcmName">Shashi Kumar</a>	</div>
+    <div data-role="content" data-theme="d">
+        <img id="ingPageLoading" style="display:none;" src="Images/indicator.gif" />
+        <label for="ddlGroup"><h4>Choose Group:</h4></label>
+        <select id="ddlGroup" data-native-menu="false" data-theme="d">
+        </select>
+        <br />
+        <div id="dvMembers" style="display:none; border:2px solid Gray;">
+       
+            <table border="0" cellpadding="0" cellspacing="0" id="tblMemberList">
+               <tr>
+                <td style="width:30%">
+                    <input id="chkAll" type="checkbox" />
+                </td>
+                <td>All</td>
+            </tr>
+            </table>
+        </div>
+        <label for="taMessage"><h4>Message:</h4></label>
+	    <textarea cols="40" rows="20" name="textarea" id="taMessage"></textarea>
+        <br />
+        <label id="lblresult" style="display:none;"></label>
+        <label id="lblerror"></label>
+        <div data-theme="a" class="ui-bar ui-grid-a">
+        <div class="ui-block-a"><button type="submit" id="btnSubmit" data-theme="b">Send</button></div>
+	    <div class="ui-block-b"><button type="submit" id="btnReset" data-theme="a">Reset</button></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+
+

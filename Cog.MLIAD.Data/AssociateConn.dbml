@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AssociateConn" Class="AssociateConnDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ctsingtpsspd\sspd;Initial Catalog=AssociateConn;Persist Security Info=True;User ID=mliuser" SettingsObjectName="Cog.MLIAD.Data.Properties.Settings" SettingsPropertyName="AssociateConnConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AddressType" Member="AddressTypes">
+    <Type Name="AddressType">
+      <Column Name="AddressTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AddressType" Member="AddressType1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="AddressType_Address" Member="Addresses" ThisKey="AddressTypeID" OtherKey="AddressTypeID" Type="Address" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Address1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AddressTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Address_AssociateAddressMap" Member="AssociateAddressMaps" ThisKey="AddressID" OtherKey="AddressID" Type="AssociateAddressMap" />
+      <Association Name="AddressType_Address" Member="AddressType" ThisKey="AddressTypeID" OtherKey="AddressTypeID" Type="AddressType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phone" Member="Phones">
+    <Type Name="Phone">
+      <Column Name="PhoneID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PhoneTypeID" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Phone" Member="Phone1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Phone_AssociatePhoneMap" Member="AssociatePhoneMaps" ThisKey="PhoneID" OtherKey="PhoneID" Type="AssociatePhoneMap" />
+      <Association Name="PhoneType_Phone" Member="PhoneType" ThisKey="PhoneTypeID" OtherKey="PhoneTypeID" Type="PhoneType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhoneType" Member="PhoneTypes">
+    <Type Name="PhoneType">
+      <Column Name="PhoneTypeID" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PhoneType" Member="PhoneType1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PhoneType_Phone" Member="Phones" ThisKey="PhoneTypeID" OtherKey="PhoneTypeID" Type="Phone" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Practice" Member="Practices">
+    <Type Name="Practice">
+      <Column Name="PracticeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PracticeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Practice_Account" Member="Accounts" ThisKey="PracticeID" OtherKey="PracticeID" Type="Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PracticeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Practice_Account" Member="Practice" ThisKey="PracticeID" OtherKey="PracticeID" Type="Practice" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssociateAddressMap" Member="AssociateAddressMaps">
+    <Type Name="AssociateAddressMap">
+      <Column Name="AssociateAddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Address_AssociateAddressMap" Member="Address" ThisKey="AddressID" OtherKey="AddressID" Type="Address" IsForeignKey="true" />
+      <Association Name="Associate_AssociateAddressMap" Member="Associate" ThisKey="AssociateID" OtherKey="AssociateID" Type="Associate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssociatePhoneMap" Member="AssociatePhoneMaps">
+    <Type Name="AssociatePhoneMap">
+      <Column Name="AssociatePhoneID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PhoneID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Phone_AssociatePhoneMap" Member="Phone" ThisKey="PhoneID" OtherKey="PhoneID" Type="Phone" IsForeignKey="true" />
+      <Association Name="Associate_AssociatePhoneMap" Member="Associate" ThisKey="AssociateID" OtherKey="AssociateID" Type="Associate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Designation" Member="Designations">
+    <Type Name="Designation">
+      <Column Name="DesignationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Designation" Member="Designation1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Designation_Associate" Member="Associates" ThisKey="DesignationID" OtherKey="DesignationID" Type="Associate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Discussion" Member="Discussions">
+    <Type Name="Discussion">
+      <Column Name="TopicID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TopicDesc" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="PostDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsParent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Discussion_DiscussionDetail" Member="DiscussionDetails" ThisKey="TopicID" OtherKey="Parent" Type="DiscussionDetail" />
+      <Association Name="Associate_Discussion" Member="Associate" ThisKey="CreatedBy" OtherKey="AssociateID" Type="Associate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiscussionDetail" Member="DiscussionDetails">
+    <Type Name="DiscussionDetail">
+      <Column Name="DiscussionDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DetailDesc" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Discussion_DiscussionDetail" Member="Discussion" ThisKey="Parent" OtherKey="TopicID" Type="Discussion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Associate" Member="Associates">
+    <Type Name="Associate">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DirectReportID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DesignationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Associate_AssociateAddressMap" Member="AssociateAddressMaps" ThisKey="AssociateID" OtherKey="AssociateID" Type="AssociateAddressMap" />
+      <Association Name="Associate_AssociatePhoneMap" Member="AssociatePhoneMaps" ThisKey="AssociateID" OtherKey="AssociateID" Type="AssociatePhoneMap" />
+      <Association Name="Associate_Discussion" Member="Discussions" ThisKey="AssociateID" OtherKey="CreatedBy" Type="Discussion" />
+      <Association Name="Designation_Associate" Member="Designation" ThisKey="DesignationID" OtherKey="DesignationID" Type="Designation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Add_Address" Method="Add_Address">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AddressTypeID" Parameter="addressTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Address1" Parameter="address1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Address2" Parameter="address2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Address3" Parameter="address3" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Country" Parameter="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Zip" Parameter="zip" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Add_Firewall" Method="Add_Firewall">
+    <Parameter Name="FirewallRequestDesc" Parameter="firewallRequestDesc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Destination" Parameter="destination" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Source" Parameter="source" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Port" Parameter="port" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Add_Phone" Method="Add_Phone">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PhoneTypeID" Parameter="phoneTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Add_Software" Method="Add_Software">
+    <Parameter Name="SoftResourceID" Parameter="softResourceID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoftCategoryID" Parameter="softCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoftVersionID" Parameter="softVersionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Delete_Associate" Method="Delete_Associate">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Delete_Software" Method="Delete_Software">
+    <Parameter Name="SoftRequestID" Parameter="softRequestID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Delete_Firewall" Method="Delete_Firewall">
+    <Parameter Name="FirewallRequestID" Parameter="firewallRequestID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Edit_Address" Method="Edit_Address">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Address1" Parameter="address1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Address2" Parameter="address2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Address3" Parameter="address3" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Country" Parameter="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Zip" Parameter="zip" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="AddressTypeID" Parameter="addressTypeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Edit_Software" Method="Edit_Software">
+    <Parameter Name="SoftRequestID" Parameter="softRequestID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoftResourceID" Parameter="softResourceID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoftCategoryID" Parameter="softCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoftVersionID" Parameter="softVersionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Edit_Associate" Method="Edit_Associate">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DirectReportID" Parameter="directReportID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="DOJ" Parameter="dOJ" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DesignationID" Parameter="designationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Edit_Firewall" Method="Edit_Firewall">
+    <Parameter Name="FirewallRequestID" Parameter="firewallRequestID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirewallRequestDesc" Parameter="firewallRequestDesc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Destination" Parameter="destination" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Source" Parameter="source" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Port" Parameter="port" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Edit_Phone" Method="Edit_Phone">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PhoneTypeID" Parameter="phoneTypeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Get_Location" Method="Get_Location">
+    <ElementType Name="Get_LocationResult">
+      <Column Name="LocationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Account" Method="Get_Account">
+    <Parameter Name="PracticeID" Parameter="practiceID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_AccountResult">
+      <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_AddressType" Method="Get_AddressType">
+    <ElementType Name="Get_AddressTypeResult">
+      <Column Name="AddressTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_ApprovalRequest" Method="Get_ApprovalRequest">
+    <ElementType Name="Get_ApprovalRequestResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Designation" Method="Get_Designation">
+    <ElementType Name="Get_DesignationResult">
+      <Column Name="DesignationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_PhoneType" Method="Get_PhoneType">
+    <ElementType Name="Get_PhoneTypeResult">
+      <Column Name="PhoneTypeID" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Role" Method="Get_Role">
+    <ElementType Name="Get_RoleResult">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleDesc" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Practice" Method="Get_Practice">
+    <ElementType Name="Get_PracticeResult">
+      <Column Name="PracticeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PracticeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Project" Method="Get_Project">
+    <ElementType Name="Get_ProjectResult">
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_SoftwareCategory" Method="Get_SoftwareCategory">
+    <ElementType Name="Get_SoftwareCategoryResult">
+      <Column Name="SoftCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoftCategoryDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_SoftwareVersion" Method="Get_SoftwareVersion">
+    <Parameter Name="SoftResourceID" Parameter="softResourceID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_SoftwareVersionResult">
+      <Column Name="SoftVersionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoftVersionDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_SoftwareResource" Method="Get_SoftwareResource">
+    <Parameter Name="SoftCategoryID" Parameter="softCategoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_SoftwareResourceResult">
+      <Column Name="SoftResourceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoftResourceDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Search_Address" Method="Search_Address">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Search_AddressResult">
+      <Column Name="Address1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AddressTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Search_Phone" Method="Search_Phone">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Search_PhoneResult">
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneTypeID" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Category" Method="Get_Category">
+    <ElementType Name="Get_CategoryResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_TopicDetails" Method="Get_TopicDetails">
+    <Parameter Name="topicID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_TopicDetailsResult">
+      <Column Name="DetailDesc" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscussionDetailID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreatedByName" Type="System.String" DbType="VarChar(101) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.validateUser" Method="validateUser">
+    <Parameter Name="uid" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="pwd" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Post_NewTopic" Method="Post_NewTopic">
+    <Parameter Name="topicHeader" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="isParent" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="createdBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="topicDesc" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="categoryID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Get_AssoListPerGroup" Method="Get_AssoListPerGroup">
+    <Parameter Name="groupID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_AssoListPerGroupResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Post_ReplyToTopic" Method="Post_ReplyToTopic">
+    <Parameter Name="parentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="createdBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReplyDesc" Parameter="replyDesc" Type="System.String" DbType="VarChar(8000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Get_Topics" Method="Get_Topics">
+    <Parameter Name="categoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="groupID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_TopicsResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TopicID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsParent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PostDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="topicheader" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TopicDesc" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CategoryDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CommentCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Topic" Method="Get_Topic">
+    <Parameter Name="topicID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_TopicResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TopicID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsParent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PostDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="topicheader" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TopicDesc" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CommentCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateGroup" Method="UpdateGroup">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetUserPWD" Method="GetUserPWD">
+    <Parameter Name="userid" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="associateid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="GetUserPWDResult">
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_AssociateByID" Method="Get_AssociateByID">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_AssociateByIDResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOJ" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PracticeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AccountName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ProjectName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAthenticateUser" Method="getAthenticateUser">
+    <Parameter Name="uid" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="pwd" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="getAthenticateUserResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(101) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DirectReportID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DirectReporter" Type="System.String" DbType="VarChar(101)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProjectID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProjectName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Technology" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DesignationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOJ" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getAssociateRoleGroup" Method="getAssociateRoleGroup">
+    <Parameter Name="uid" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="getAssociateRoleGroupResult">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GroupDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RoleDesc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_GroupByID" Method="Get_GroupByID">
+    <Parameter Name="associateID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_GroupByIDResult">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Get_Group" Method="Get_Group">
+    <ElementType Name="Get_GroupResult">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddToGroup" Method="AddToGroup">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RemoveFromGroup" Method="RemoveFromGroup">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetMemberByGroupAndRole" Method="GetMemberByGroupAndRole">
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetMemberByGroupAndRoleResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CreateGroup" Method="CreateGroup">
+    <Parameter Name="GroupName" Parameter="groupName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="GroupDesc" Parameter="groupDesc" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Save_Message" Method="Save_Message">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="message" Type="System.String" DbType="VarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Get_AssociateByUserID" Method="Get_AssociateByUserID">
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Get_AssociateByUserIDResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Update_Category" Method="Update_Category">
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CategoryDesc" Parameter="categoryDesc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Add_Category" Method="Add_Category">
+    <Parameter Name="CategoryDesc" Parameter="categoryDesc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Delete_Category" Method="Delete_Category">
+    <Parameter Name="CategoryID" Parameter="categoryID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.get_AdminByGroup" Method="get_AdminByGroup">
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="get_AdminByGroupResult">
+      <Column Name="AssociateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Add_Associate" Method="Add_Associate">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DirectReportID" Parameter="directReportID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsApproved" Parameter="isApproved" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ProjectID" Parameter="projectID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LocationID" Parameter="locationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DesignationID" Parameter="designationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOJ" Parameter="dOJ" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ApproveMember" Method="ApproveMember">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RejectMember" Method="RejectMember">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_SMSAccounts" Method="sp_SMSAccounts">
+    <Parameter Name="Mode" Parameter="mode" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(64)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(32)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NVarChar(12)" />
+    <Parameter Name="SentSMS" Parameter="sentSMS" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_SMSAccountsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
+      <Column Name="SentSMS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Add_MobileAssociate" Method="Add_MobileAssociate">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="gender" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ChangePassword" Method="sp_ChangePassword">
+    <Parameter Name="AssociateID" Parameter="associateID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OldPassword" Parameter="oldPassword" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NewPassword" Parameter="newPassword" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ReturnValue" Parameter="returnValue" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
